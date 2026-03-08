@@ -389,10 +389,12 @@ body {
 }
 
 .hero-visual {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 
 .blockchain-visual {
     display: grid;
@@ -408,7 +410,6 @@ body {
     border-radius: 15px;
     animation: pulse 2s ease-in-out infinite;
     box-shadow: var(--shadow-medium);
-    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .block:nth-child(2) {
@@ -463,11 +464,12 @@ section {
     background: var(--light-bg);
 }
 
-.about-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 4rem;
-    align-items: start;
+.contact-content {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
 }
 
 .about-text p {
@@ -896,11 +898,11 @@ section {
 
 /* Contact Section */
 .contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: row;
     gap: 4rem;
-    max-width: 1000px;
-    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
 }
 
 .contact-info h3 {
@@ -1178,7 +1180,7 @@ section {
     }
 
     .contact-content {
-        grid-template-columns: 1fr;
+        flex-direction: column;
         gap: 2rem;
     }
 

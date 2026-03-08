@@ -2,7 +2,6 @@
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
-const contactForm = document.getElementById('contact-form');
 const navbar = document.querySelector('.navbar');
 
 // Mobile Navigation Toggle
@@ -48,66 +47,6 @@ window.addEventListener('scroll', () => {
 
 
 
-// Contact Form Handling
-contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const originalText = submitBtn.textContent;
-    
-    // Get form data
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
-    };
-    
-    // Validation
-    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-        showToast('Please fill in all fields', 'error');
-        return;
-    }
-    
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-        showToast('Please enter a valid email address', 'error');
-        return;
-    }
-    
-    // Show loading state
-    submitBtn.innerHTML = '<span class="loading"></span> Sending...';
-    submitBtn.disabled = true;
-    
-    try {
-        // Send to MongoDB via API
-        const response = await fetch('/api/contact', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData)
-        });
-        
-        const result = await response.json();
-        
-        if (result.success) {
-            showToast('Message sent successfully! I\'ll get back to you soon.', 'success');
-            contactForm.reset();
-        } else {
-            showToast(result.message || 'Failed to send message', 'error');
-        }
-        
-    } catch (error) {
-        console.error('Form submission error:', error);
-        showToast('Failed to send message. Please try again.', 'error');
-    } finally {
-        // Reset button state
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-    }
-});
 
 // Toast Notification System
 function showToast(message, type = 'success') {
