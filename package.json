@@ -1,0 +1,59 @@
+{
+  "name": "shridhi-portfolio",
+  "version": "1.0.0",
+  "description": "Professional portfolio website for Shridhi Gupta - AI Developer & Software Engineer",
+  "main": "index.html",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "static": "python -m http.server 8000",
+    "build": "echo 'Build process - optimizing assets...'",
+    "deploy": "echo 'Deploy to production server'",
+    "lint": "echo 'Linting code...'",
+    "test": "echo 'Running tests...'",
+    "optimize": "echo 'Optimizing images and assets...'"
+  },
+  "keywords": [
+    "portfolio",
+    "ai-developer",
+    "machine-learning",
+    "data-analysis",
+    "software-engineer",
+    "full-stack",
+    "python",
+    "javascript",
+    "react",
+    "nodejs"
+  ],
+  "author": {
+    "name": "Shridhi Gupta",
+    "email": "guptashridhi11@gmail.com",
+    "url": "https://linkedin.com/in/shridhi-gupta-3826s"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ShridhiGupta/portfolio"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.5.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "prettier": "^3.0.0",
+    "live-server": "^1.2.2",
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "python": ">=3.8.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
