@@ -7,6 +7,11 @@ const path = require('path');
 // Load environment variables
 dotenv.config();
 
+// Debug environment variables
+console.log('🔧 Environment variables loaded:');
+console.log('MONGODB_URI:', process.env.MONGODB_URI ? 'SET' : 'NOT SET');
+console.log('PORT:', process.env.PORT);
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -16,7 +21,10 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname)));
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://shreegupta572_db_user:zaKccyG9vm0SOeG9@clutser.xtn6tqa.mongodb.net/portfolio', {
+const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/portfolio';
+console.log('🔗 Connecting to MongoDB:', mongoUri);
+
+mongoose.connect(mongoUri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
